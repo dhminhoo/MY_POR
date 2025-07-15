@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرة ذاتية - عبدالرحمن العليمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* أزرق داكن / رمادي */
+            --secondary-color: #1abc9c; /* تركواز / أخضر مائي */
+            --light-gray: #ecf0f1;
+            --dark-text: #34495e;
+            --light-text: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 0;
+            color: var(--dark-text);
+        }
+
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--light-text);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* --- العمود الجانبي --- */
+        .sidebar {
+            width: 38%;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .profile-pic-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            background-color: #4e5f70;
+            border-radius: 50%;
+            margin: 0 auto;
+            border: 4px solid var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+            color: var(--light-gray);
+        }
+        
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            color: var(--light-text);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .contact-info ul {
+            list-style-type: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info .icon {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            width: 25px;
+            text-align: center;
+            margin-left: 15px;
+        }
+
+        .skills-list .skill {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #4e5f70;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        .level-high { width: 95%; }
+        .level-medium { width: 70%; }
+        
+        .languages-list p {
+            margin-bottom: 10px;
+        }
+        
+        .lang-level {
+            font-size: 0.9em;
+            color: #bdc3c7;
+        }
+
+        /* --- المحتوى الرئيسي --- */
+        .main-content {
+            width: 62%;
+            padding: 50px 40px;
+        }
+
+        .main-header {
+            text-align: right;
+            margin-bottom: 40px;
+        }
+
+        .main-header h1 {
+            font-family: 'Poppins', 'Cairo', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .main-header h2 {
+            font-family: 'Poppins', 'Cairo', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        
+        .main-section {
+            margin-bottom: 40px;
+        }
+
+        .main-title {
+            font-family: 'Poppins', 'Cairo', sans-serif;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .main-title .icon {
+            margin-left: 15px;
+            font-size: 1.4rem;
+        }
+
+        .summary p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        /* تصميم الخبرات بشكل تايم لاين */
+        .experience-timeline {
+            position: relative;
+        }
+
+        .timeline-item {
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            right: -6px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            border: 2px solid var(--light-text);
+            z-index: 2;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background-color: #e0e0e0;
+            z-index: 1;
+        }
+        
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 5px;
+        }
+
+        .item-subtitle {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+        
+        .item-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .education-item .item-title {
+            font-size: 1.3rem;
+        }
+        .education-item .item-subtitle {
+            font-size: 1rem;
+        }
+
+        /* Responsive & Print */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .a4-page {
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                min-height: 297mm;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-page">
+        <!-- ================== العمود الجانبي ================== -->
+        <aside class="sidebar">
+            
+            <div class="profile-pic-container">
+                <div class="profile-pic">
+                    <i class="fa-solid fa-pen-nib"></i>
+                </div>
+            </div>
+
+            <!-- معلومات التواصل -->
+            <div class="sidebar-section contact-info">
+                <h3 class="sidebar-title">معلومات شخصية</h3>
+                <ul>
+                    <li>
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <span>idhminho@gmail.com</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                        <span>اليمن</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa-solid fa-calendar-alt"></i></span>
+                        <span>مواليد 15 - 5 - 1998</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- المهارات -->
+            <div class="sidebar-section skills-list">
+                <h3 class="sidebar-title">المهارات</h3>
+                <div class="skill">
+                    <span class="skill-name">برامج أدوبي (Adobe Suite)</span>
+                    <div class="skill-bar"><div class="skill-level level-high"></div></div>
+                </div>
+                <div class="skill">
+                    <span class="skill-name">برامج الأوفيس (MS Office)</span>
+                    <div class="skill-bar"><div class="skill-level level-medium"></div></div>
+                </div>
+                <div class="skill">
+                    <span class="skill-name">المهارات البرمجية</span>
+                    <div class="skill-bar"><div class="skill-level level-medium"></div></div>
+                </div>
+            </div>
+            
+            <!-- اللغات -->
+            <div class="sidebar-section languages-list">
+                <h3 class="sidebar-title">اللغات</h3>
+                <p>
+                    <strong>اللغة العربية:</strong>
+                    <span class="lang-level">(اللغة الأم)</span>
+                </p>
+                <p>
+                    <strong>اللغة الإنجليزية:</strong>
+                    <span class="lang-level">(مستوى ممتاز جداً)</span>
+                </p>
+            </div>
+
+        </aside>
+
+        <!-- ================== المحتوى الرئيسي ================== -->
+        <main class="main-content">
+            
+            <header class="main-header">
+                <h1>عبدالرحمن العليمي</h1>
+                <h2>مصمم جرافيك محترف</h2>
+            </header>
+
+            <!-- نبذة تعريفية -->
+            <section class="main-section summary">
+                <h3 class="main-title"><span class="icon"><i class="fa-solid fa-user"></i></span>نبذة تعريفية</h3>
+                <p>
+                    مصمم جرافيك شغوف ومبدع، بخبرة تمتد منذ عام 2014 في عالم التصميم، متخصص في برامج أدوبي. حاصل على درجة البكالوريوس في تقنية المعلومات، مما يمنحني رؤية فريدة تجمع بين الإبداع الفني والفهم التقني. أسعى دائمًا لتطوير الهويات البصرية وتقديم حلول تصميم مبتكرة تلبي تطلعات العملاء.
+                </p>
+            </section>
+
+            <!-- الخبرات العملية -->
+            <section class="main-section">
+                <h3 class="main-title"><span class="icon"><i class="fa-solid fa-briefcase"></i></span>الخبرات العملية (المجال الرياضي)</h3>
+                <div class="experience-timeline">
+                    
+                    <div class="timeline-item">
+                        <h4 class="item-title">المسؤول عن قسم التصميم</h4>
+                        <p class="item-subtitle">السناب الرياضي (o15sport) - <span class="item-date">2017 حتى الآن</span></p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4 class="item-title">المسؤول عن قسم التصميم</h4>
+                        <p class="item-subtitle">أكاديمية o15 - <span class="item-date">2018 حتى الآن</span></p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4 class="item-title">المسؤول عن قسم التصميم</h4>
+                        <p class="item-subtitle">حسابات الإعلامي خالد العليان</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4 class="item-title">مصمم أول ومطور</h4>
+                        <p class="item-subtitle">بطولة بلدية الجبيل الرمضانية</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4 class="item-title">مصمم مسؤول</h4>
+                        <p class="item-subtitle">برنامج كواليس المدرج (إبراهيم المنيسك)</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4 class="item-title">مصمم تغطية البطولات</h4>
+                        <p class="item-subtitle">تغطية بطولة القارات (أكاديمية مهد)</p>
+                    </div>
+
+                </div>
+            </section>
+            
+            <!-- الشهادة العلمية -->
+            <section class="main-section">
+                 <h3 class="main-title"><span class="icon"><i class="fa-solid fa-graduation-cap"></i></span>الشهادة العلمية</h3>
+                 <div class="education-item">
+                    <h4 class="item-title">بكالوريوس تقنية معلومات</h4>
+                    <p class="item-subtitle">جامعة السعيد - تعز، اليمن</p>
+                 </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
